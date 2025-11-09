@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Chefs | Taste Nest</title>
+  <link rel="stylesheet" href="Chef.css" />
+  <style>
+    :root {
+      --primary-bg: #f8f5f2;
+      --text-color: #2b2b2b;
+      --card-bg: #fff;
+      --accent: #4f3632;
+      --footer-bg: #2b2b2b;
+      --highlight: #f5b921;
+    }
+    [data-theme="dark"] {
+      --primary-bg: #121212;
+      --text-color: #e2e2e2;
+      --card-bg: #1e1e1e;
+      --accent: #d1b89f;
+      --footer-bg: #000;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--primary-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .page-header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, var(--accent), #3a2927);
+      color: #fff;
+      position: relative;
+    }
+    .page-header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .page-header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background: var(--highlight);
+      color: #000;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+    .chefs-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .chef-card {
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .chef-inner {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .chef-card:hover .chef-inner {
+      transform: rotateY(180deg);
+    }
+    .chef-front, .chef-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+      backface-visibility: hidden;
+      background: var(--card-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .chef-front img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    .chef-front h2 {
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+    }
+    .chef-back {
+      transform: rotateY(180deg);
+      color: var(--text-color);
+      background: var(--card-bg);
+    }
+    .chef-back p {
+      padding: 0 10px;
+      font-size: 0.95rem;
+    }
+    .page-footer {
+      text-align: center;
+      padding: 25px 15px;
+      background-color: var(--footer-bg);
+      color: #ddd;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+    .page-footer strong {
+      color: var(--highlight);
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1>Meet Our Chefs</h1>
+    <p>Our talented chefs bring passion and creativity to every dish they prepare.</p>
+    <button class="theme-toggle" id="theme-toggle">🌙 Dark Mode</button>
+  </header>
+  <main class="chefs-container">
+    <div class="chef-card">
+      <div class="chef-inner">
+        <div class="chef-front">
+          <img src="walter-white.jpg" alt="Walter White, Head Chef" />
+          <h2>Walter White</h2>
+        </div>
+        <div class="chef-back">
+          <p>Head Chef with over 10 years of experience in innovative culinary techniques. Known for precision and creativity, Walter transforms traditional cooking into a science of perfection.</p>
+        </div>
+      </div>
+    </div>
+    <div class="chef-card">
+      <div class="chef-inner">
+        <div class="chef-front">
+          <img src="jesse-pinkman.jpg" alt="Jesse Pinkman, Sous Chef" />
+          <h2>Jesse Pinkman</h2>
+        </div>
+        <div class="chef-back">
+          <p>A passionate sous chef who blends energy and experimentation, Jesse brings bold flavors and modern ideas to every dish.</p>
+        </div>
+      </div>
+    </div>
+    <div class="chef-card">
+      <div class="chef-inner">
+        <div class="chef-front">
+          <img src="gus-fring.jpg" alt="Gus Fring, Executive Chef" />
+          <h2>Gus Fring</h2>
+        </div>
+        <div class="chef-back">
+          <p>The mastermind of organization and discipline, Gus ensures every meal meets the highest standards of excellence and presentation.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="page-footer">
+    <p>&copy; 2025 <strong>Taste Nest</strong>. All rights reserved.</p>
+  </footer>
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    toggleButton.addEventListener('click', () => {
+      const isDark = document.body.getAttribute('data-theme') === 'dark';
+      document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      toggleButton.textContent = isDark ? '🌙 Dark Mode' : '☀️ Light Mode';
+    });
+  </script>
+</body>
+</html>

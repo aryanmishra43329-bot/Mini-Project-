@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #363a2b;
+    padding: 20px;
+    color: #f8f6f6;
+    background-image: url(../restraunt.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.contact-container {
+    max-width: 600px;
+    margin: auto;
+    background-color: #100909;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(93, 51, 51, 0.1);
+}
+.social-media {
+    text-align: center;
+    margin-top: 20px;
+}
+h1, h2 {
+    color: #ffffff;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+p{
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #f0f0f0;
+    font-size: 16px;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+ul li {
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+a {
+    text-decoration: none;
+    color: rgb(4, 182, 241);
+
+}
+a:hover {
+    text-decoration: underline;
+}
